@@ -1,0 +1,66 @@
+
+
+<body>
+    <%- include('navbar2', {user: user}); -%>
+    <div class = "posts-contain">    
+        <div class = "post-items">
+            <div id = "top-line"><b>RECOMMENDED FOR YOU</b></div>
+            <%posts.slice().reverse().forEach((post) => {%>
+                <%poster.forEach((user) => {%>
+                    <%if(post.userId == user.id){%>
+                        <%const postOwner = user;%>
+                        <div class = "post-bar">
+                            <div id = "post-contain">
+                                <div id = "post-owner" onclick="window.location.href = '#'"><img src="<%=postOwner.photo%>" alt="" width ="20" height = "20" style = "border-radius: 50%;">    <b><%=postOwner.username%></b></div>
+                                <div id = "post-title" onclick="window.location.href = '/readPost/<%=post._id%>'"><h4><b><%=post.title%></b></h4></div>
+                                <div id = "post-body" onclick="window.location.href = '/readPost/<%=post._id%>'"><%-post.body-%></div>
+                                <div id = "post-date"><p><%=post.date%></p></div>
+                            </div>
+                            <div id = "img-contain" onclick="window.location.href = '/readPost/<%=post._id%>'">
+                                <img src="<%=post.photo%>" alt="photo" style="object-fit:fill; width: 100%; height: 100% ">
+                            </div>
+                        </div>
+                    <%}else {%>
+                        <%return%>
+                    <%}%>
+                <%})%>
+            <%})%>
+        </div>
+        <div class = "other-related">
+            <div id = "write-dialogbox">
+                WRITE ON LETHIUM
+                <br>
+                <br>
+                <div><p><a href=""><b>New writer FAQ</b></a></p></div>
+                <div><p><a href=""><b>Expert writing advice</b></a></p></div>
+                <div><p><a href=""><b>Grow your readership</b></a></p></div>
+                <button type="button" id = "myBtn" class="btn btn-secondary myBtn">Start writing</button>
+                <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content shadow-lg p-3 mb-5 rounded">
+      <span class="close">&times;</span>
+      <form action="/newStory" method = "post" enctype = "multipart/form-data">
+          <div id = "form-container">
+            <div><img id = "profilePic" src="<%=user.photo%>" alt="img" width = "30" height = "30"></div>
+            <div><span>Draft in <b>@<%=user.username%></b></span></div>
+            <input type="hidden" name="userId" value="<%=user.id%>">
+            <div><input type="text" placeholder="Title" id = "postTitle" name = "postTitle"><button type="submit" class="btn btn-secondary" onclick="formatField()">Publish</button></div>  
+            <!-- <div><textarea name="postBody" id="postBody" cols="30" rows="10" placeholder="write your article here..."></textarea></div> -->
+            <input type="hidden" name="body">
+            <ion-icon name="image"></ion-icon>
+            <input type="file" name="avatar" />
+            <div id = "editor"></div>
+            <!-- <div><button type="submit" class="btn btn-secondary">Publish</button></div> -->
+          </div>
+          
+      </form>
+    </div>
+  
+  </div>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>

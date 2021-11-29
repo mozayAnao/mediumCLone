@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.contain {
+  width: 100%;
+  border-top: 2px solid gray;
+  background-color: rgb(241, 240, 240);
+}
+
+.top-bar-container {
+  display: flex;
+  width: 100%;
+  background-color: #87c9e4;
+  border-bottom: 2px solid gray;
+}
+
+.intro {
+  margin-left: 250px;
+  padding: 100px;
+  width: 50%;
+}
+
+.intro-image {
+  display:block;
+  margin-left: 250px;
+  margin-right: 250px;
+  padding: 50px;
+  width: 50%;
+  height: 100%;
+}
+
+.navbar {
+  background-color: #87c9e4;
+}
+
+.container-fluid {
+  margin-left: 250px;
+  margin-right: 250px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.mid-bar-container {
+  width: 100%;
+  border-bottom: 0.5px solid gray;
+}
+
+.section-header {
+  margin-left: 250px;
+  margin-right: 250px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 10px;
+}
+
+.trending-posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 250px;
+  margin-right: 240px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#post-item {
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.title, 
+#date {
+  margin-bottom: 10px;
+}
+
+section {
+  margin: 15px;
+  padding: 5px;
+  display: flex;
+  width: 30%;
+}
+section:hover, .post-bar:hover {
+  background-color: rgb(247, 247, 240);
+}
+
+#post-index, #poster, .title, #post-owner, #post-title, #post-body, #img-contain, :hover{
+  cursor: pointer;
+}
+
+#post-index {
+  color: #aaa;
+  margin-right: 15px;
+}
+
+span {
+  display: block;
+  overflow: auto;
+}
+
+.bottom-bar {
+  display: flex;
+}
+
+.posts-contain {
+  display: flex;
+}
+
+#bottomPost {
+  width: 65%;
+  margin-left: 250px;
+  margin-top: 50px;
+  padding-left: 100px;
+}
+
+#bottomAds {
+  width: 25%;
+  margin-right: 250px;
+  margin-top: 50px;
+  padding-right: 100px;
+}
+
+.post-items {
+  margin: 20px;
+  margin-left: 250px;
+  padding: 10px;
+  width: 65%;
+  border-right: 0.5px solid gray;
+}
+
+.other-related {
+  margin: 20px;
+  margin-right: 250px;
+  padding: 50px;
+  width: 25%;
+}
+
+.post-bar {
+  display: flex;
+  margin: 40px;
+  margin-left: 10px;
+  width: 100%;
+  height: 200px;
+}
+
+#post-contain {
+  width: 65%;
+}
+
+#post-body {
+  display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 15px;
+    text-decoration-color: gray;
+    font-size: 18px;
+    color:rgb(90, 86, 86);
+    line-height:1.2; 
+    /* line-height for 1line*/    
+    max-height:6rem; 
+    /* line-height * 3*/
+}
+
+#post-date, #date {
+  color:rgb(134, 130, 130);
+}
+
+#post-index {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.title {
+  font-size: 17px;
+}
+
+#poster {
+  font-size: 12px;
+}
+
+
+#img-contain {
+  width: 25%;
+}
+
+#top-line {
+  border-bottom: 0.5px solid gray;
+  margin-right: 200px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+}
+
+#write-dialogbox {
+  background-color: #87c9e4;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#profilePic {
+  size: 10px;
+  border-radius: 50%;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #daedf0;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 110px;
+  border: none;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+#postBody,
+#postTitle {
+  width: 85%;
+  border-radius: 5px;
+  border: none;
+  padding: 20px;
+  margin: 20px;
+}
+
+#postTitle {
+  height: 30px;
+}
+
+#editor {
+  background-color: rgb(255, 255, 255);
+}
+
+ion-icon {
+  font-size: 25px;
+  margin-right: 5px;
+  color: #87c9e4;
+}
+
+ion-icon:hover {
+  cursor: pointer;
+} 
+
+.btn {
+  border-radius: 25px;
+}
+
+#readContainer {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  
+}
+
+#readBox {
+  width: 40%;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+
+#posterProfile {
+  display: flex;
+  margin-bottom: 50px;
+}
+#postPhoto {
+  height: 400px;
+}
+
+#posterPhoto {
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+#posterInfo {
+  margin-top: 30px;
+  width: 80%;
+}
+
+#socialHandles {
+  margin-top: 20px;
+  padding-top: 40px;
+  width: 20%;
+}
+
+#posterName {
+  margin-bottom: 5px;
+}
+
+#postPhoto {
+  margin-bottom: 50px;
+}
+
+#postText {
+  font-size: 20px;
+}
+
+footer {
+  height: 50px;
+}

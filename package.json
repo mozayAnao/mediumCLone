@@ -1,0 +1,27 @@
+{
+  "name": "mediumapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.6",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "fs": "^0.0.1-security",
+    "helmet": "^4.6.0",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "mongoose": "^6.0.13",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.3",
+    "passport": "^0.5.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth": "^2.0.0"
+  }
+}

@@ -1,0 +1,163 @@
+
+
+
+<body>
+  <%- include('navbar'); -%>
+  <div class = 'contain'>
+    <div class = 'top-bar-container'>  
+      <div class = 'intro'>
+        <h1>Lethium is a place to write, read, and connect</h1>
+        <p>It's easy and free to post your thinking on any topic and connect with millions of readers.</p>
+        <button type="button" class="btn btn-secondary">Start writing</button>
+      </div>
+      <div class = 'intro-image'>
+        <img src="/images/4_BIK9VGjeCj2TaTDw4id2nA.png" alt="image">
+      </div>
+    </div>
+
+    <div class="mid-bar-container">
+      <div class = "section-header"><b>TRENDING ON LETHIUM</b></div>
+      <div class = "trending-posts">
+        <%for(let i = 0; i < 6; i++) {%>
+            <%poster.forEach((user) => {%>
+              <%if(posts[i].userId == user.id){%>
+                  <%const postOwner = user;%>
+                  <%const dateRecieved = posts[i].date%>
+                  <%const date = dateRecieved.toString()%>
+                  <%const postDate = date.substr(4, 6)%>
+                  <section>
+                  
+                      <div id = "post-index" onclick="window.location.href = '/readPost/<%=posts[i]._id%>'"><h2>0<%=i+1%></h2></div>
+                      <br>
+                      <div>
+                        
+                          <div id = 'post-item'>                      
+                            <div id = "poster" onclick="window.location.href = '#'"><img src="<%=postOwner.photo%>" alt="photo" width = "20" height = "20" style = "border-radius: 50%;">  <b><%=postOwner.username%></b></div>                       
+                          </div>
+                          <div type = "submit" class = "title" onclick="window.location.href='/readPost/<%=posts[i]._id%>'">
+                            <span><strong><b><%=posts[i].title%></b></strong></span>
+                          </div>
+                          <div id = "date">
+                            <p><%=postDate%></p>
+                          </div>
+                        
+                      </div>   
+                                   
+                    </section>                
+                <%}else {%>
+                  <%return%>
+              <%}%>
+            <%})%>
+        <%}%> 
+        <!-- <section>
+          <div id = 'post-item'>
+            <h2>01</h2>
+            <img src="#" alt="photo">
+            <p>Anao Moses</p>
+          </div>
+          <div class = "title">
+            <span><b>If you want to excel at maths, read these 20 books.</b></span>
+          </div>
+          <div>
+            Nov 23
+          </div>
+        </section>
+        <section>
+          <div id = 'post-item'>
+            <h2>02</h2>
+            <img src="#" alt="photo">
+            <p>Anao Moses</p>
+          </div>
+          <div>
+            <p><b>If you want to excel at maths, read these 20 books.</b></p>
+          </div>
+          <div>
+            Nov 23
+          </div>
+        </section>
+        <section>
+          <div id = 'post-item'>
+            <h2>03</h2>
+            <img src="#" alt="photo">
+            <p>Anao Moses</p>
+          </div>
+          <div>
+            <p><b>If you want to excel at maths, read these 20 books.</b></p>
+          </div>
+          <div>
+            Nov 23
+          </div>
+        </section>
+        <section>
+          <div id = 'post-item'>
+            <h2>04</h2>
+            <img src="#" alt="photo">
+            <p>Anao Moses</p>
+          </div>
+          <div>
+            <p><b>If you want to excel at maths, read these 20 books.</b></p>
+          </div>
+          <div>
+            Nov 23
+          </div>
+        </section>
+        <section>
+          <div id = 'post-item'>
+            <h2>05</h2>
+            <img src="#" alt="photo">
+            <p>Anao Moses</p>
+          </div>
+          <div>
+            <p><b>If you want to excel at maths, read these 20 books.</b></p>
+          </div>
+          <div>
+            Nov 23
+          </div>
+        </section>
+        <section>
+          <div id = 'post-item'>
+            <h2>06</h2>
+            <img src="#" alt="photo">
+            <p>Anao Moses</p>
+          </div>
+          <div>
+            <p><b>If you want to excel at maths, read these 20 books.</b></p>
+          </div>
+          <div>
+            Nov 23
+          </div>
+        </section> -->
+      </div>
+    </div>
+    <div class = 'bottom-bar'>
+      <div id = 'bottomPost'>
+        <%posts.slice().reverse().forEach((post) => {%>
+          <%poster.forEach((user) => {%>
+              <%if(post.userId == user.id){%>
+                  <%const postOwner = user;%>
+                  <div class = "post-bar">
+                      <div id = "post-contain">
+                          <div id = "post-owner" onclick="window.location.href = '/about'"><img src="<%=postOwner.photo%>" alt="" width ="20" height = "20" style = "border-radius: 50%;">    <b><%=postOwner.username%></b></div>
+                          <div id = "post-title" onclick="window.location.href='/readPost/<%=post._id%>'"><h4><b><%=post.title%></b></h4></div>
+                          <div id = "post-body" onclick="window.location.href = '/readPost/<%=post._id%>'"><%-post.body-%></div>
+                          <div id = "post-date"><p><%=post.date%></p></div>
+                      </div>
+                      <div id = "img-contain" onclick="window.location.href = '/readPost/<%=post._id%>'">
+                          <img src="<%=post.photo%>" alt="photo" style="object-fit:fill; width: 100%; height: 100% ">
+                      </div>
+                  </div>
+              <%}else {%>
+                  <%return%>
+              <%}%>
+          <%})%>
+        <%})%>
+      </div>
+      <div id = 'bottomAds'>
+        ads
+      </div>
+    </div>
+    
+  </div>
+</body>
+
+<%- include('footer'); -%>

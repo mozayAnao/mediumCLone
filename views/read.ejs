@@ -1,0 +1,31 @@
+<body>
+    <%- include('navbar2', {user: user}); -%>
+    <div id="readContainer">
+        <div id="readBox">
+            <div><h1><%=post.title%></h1></div>
+            <div id="posterProfile">
+                <div id="posterPhoto">
+                    <img src="<%=user.photo%>" alt="" width = "50" height = "50" style = "border-radius: 50%;">
+                </div>
+                <div id="posterInfo">
+                    <div id="posterName"><%=user.name%>  <button type="button" class="btn btn-primary btn-sm">follow</button></div>
+                    <%const dateRecieved = post.date%>
+                    <%const date = dateRecieved.toString()%>
+                    <%const postDate = date.substr(4, 6)%>
+                    <div><%=postDate%></div>
+                </div>
+                <div id="socialHandles">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                    <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                </div>                
+            </div>
+            <div id="postPhoto">
+                <img src="<%=post.photo%>" alt="" style="object-fit:fill; width: 100%; height: 100% ">
+            </div>
+            <div id="postText"><%-post.body%></div>
+        </div>       
+    </div>
+    <%- include('footer'); -%>
+</body>
